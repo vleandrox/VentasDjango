@@ -1,0 +1,114 @@
+{% extends "base/base.html" %}
+{% load crispy_forms_tags %}
+{% block carusel %}
+{% endblock carusel %}
+{% block content %}
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <i class="fas fa-user-plus"></i> Producto</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}     
+                            {{crispy}}                      
+                            <div class="row">
+                                <div class="col-md-12">                                    
+                                    <div class="form-group">
+                                        <label >Titulo</label>
+                                        <input class="form-control" type="text" name="titulo" required="" value="{{producto.titulo}}">
+                                    </div>
+                                </div>                                                                                    
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                          <label >Descripcion</label>
+                                          <textarea class="form-control" rows="3" name="descripcion" placeholder="Enter ..." value="">{{producto.descripcion}}</textarea>      
+                                    </div>                                  
+                                </div>    
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">                                    
+                                    <div class="form-group">
+                                        <label >Marca</label>
+                                        <input class="form-control" type="text" name="marca" required="" value="{{producto.marca}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label >Modelo</label>
+                                        <input class="form-control" type="text" name="modelo" required="" value="{{producto.modelo}}">
+                                    </div>
+                                </div>                                                            
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">                                    
+                                    <div class="form-group">
+                                        <label >Precio (Redondeado) </label>
+                                        <input class="form-control" type="number" name="precio" required="" value="{{producto.precio}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label >Fecha</label>
+                                        <input type="date" min="1000-01-01" max="3000-12-31" class="form-control" name="fecha"  value="{{producto.fecha}}">
+                                    </div>
+                                </div>                                                            
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">                                    
+                                    <div class="form-group">
+                                        <label >Foto1</label>
+                                        <input type="file"  name="foto1" id="inputFile1"  >
+                                        <img src="{{producto.foto1.url}}" width="256px" height="197px" id="img1" >
+                                    </div>
+                                </div>
+                                <div class="col-md-6">                                    
+                                    <div class="form-group">
+                                        <label >Foto2</label>
+                                        <input type="file"  name="foto2" id="inputFile2" > 
+                                        <img src="{{producto.foto2.url}}" width="256px" height="197px"  id="img2">
+                                    </div>
+                                </div>                                                                                    
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">                                    
+                                    <div class="form-group">
+                                        <label >Foto3</label>
+                                        <input type="file" name="foto3" id="inputFile3"  >
+                                        <img src="{{producto.foto3.url}}" width="256px" height="197px"  id="img3">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">                                    
+                                    <div class="form-group">
+                                        <label >Foto4</label>
+                                        <input type="file" name="foto4" id="inputFile4" >
+                                        <img src="{{producto.foto4.url}}" width="256px" height="197px" id="img4" >
+                                    </div>
+                                </div>                                                                                    
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">                                    
+                                    <div class="form-group">
+                                        <label >Foto5</label>
+                                        <input type="file" name="foto5" value="foto5" id="inputFile5" >
+                                        <img src="{{producto.foto5.url}}" width="256px" height="197px" id="img5">
+                                        
+                                    </div>
+                                </div>                                 
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-outline-info" type="submit">Post</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

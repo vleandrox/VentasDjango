@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+{% block carusel %}
+{% endblock carusel %}
+{% block content %}
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card">
+                    <div class="card-header border-primary text-black">
+                        <i class="fas fa-user-plus"></i> Eliminar Producto</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <fieldset class="form-group">                              
+                                <h2> Esta seguro de eliminar : "{{ object.titulo }}"</h2>
+                            </fieldset>
+                            <div class="form-group">
+                                <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+                                <a class="btn btn-outline-secondary" href="{% url 'producto-detail' object.id %}">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

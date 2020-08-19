@@ -1,0 +1,28 @@
+{% extends "base/base.html" %}
+{% block carusel %}
+{% endblock carusel %}
+{% block content %}
+<section class="bg-light py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mx-auto">
+				<div class="card">
+					<div class="card-header bg-primary text-white">
+						<h5>Ha salido del sitema ... </h5>
+					</div>
+					<div class="card-body">
+						<div class="border-top pt-3">
+							<small class="text-muted">
+								<a href="{% url 'login' %}">Ingresar Nuevamente .</a>
+							</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+{% endblock content %}

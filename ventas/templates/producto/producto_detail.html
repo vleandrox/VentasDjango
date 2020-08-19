@@ -1,0 +1,111 @@
+{% extends "base/base.html" %}
+{% block carusel %}
+{% endblock carusel %}
+{% block content %}
+<section class="bg-light py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mx-auto">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+             <h6>Posts by {{ view.kwargs.username }}</h6>
+         </div>        
+         <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label >Titulo : {{producto.titulo}}</label>                
+                    </div>
+                </div>      
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label > Fecha : {{producto.fecha}}</label>                
+                    </div>    
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label><b>Descripcion : </b> {{producto.descripcion}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label><b>Marca :</b> {{producto.marca}}</label>
+                    </div>                    
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label><b>Modelo :</b> {{producto.modelo}}</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label><b>Precio :</b> S/.{{producto.precio}}</label>
+                    </div>
+                </div>
+            </div>     
+            <div class="row">
+                <div class="col-md-4 ">
+                    <div class="form-group">
+                        <img src="{{ producto.foto1.url }}" width="256px" height="197px" >
+
+                    </div>
+                </div>
+                <div class="col-md-4 ">
+                    <div class="form-group">
+                        <img src="{{ producto.foto2.url }}" width="256px" height="197px" >
+
+                    </div>
+                </div>
+                <div class="col-md-4 ">
+                    <div class="form-group">
+                        <img src="{{ producto.foto3.url }}" width="256px" height="197px" >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="form-group">
+                        <img src="{{ producto.foto4.url }}" width="256px" height="197px" >
+
+                    </div>
+                </div>
+                <div class="col-md-6 ">
+                    <div class="form-group">
+                        <img src="{{ producto.foto5.url }}" width="256px" height="197px" >
+
+                    </div>
+                </div>
+            </div>                                                                                                  
+        </div>
+    </div>
+</div>
+<div>
+    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'producto-update' object.id %}">Update</a>
+    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'producto-delete' object.id %}">Delete</a>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <article class="media content-section">
+   
+  </article>
+{% endblock content %}

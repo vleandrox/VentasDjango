@@ -1,0 +1,112 @@
+{% extends "base/base.html" %}
+{% block carusel %}
+{% endblock carusel %}
+
+{% block content %}
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'listar-producto' %}">Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'home' %}">Listings</a>
+          </li>
+          <li class="breadcrumb-item active"> {{ producto.titulo }} </li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+ <section id="producto" class="py-4">
+    <div class="container">
+      <a href="{% url 'home' %}" class="btn btn-light mb-4 btn btn-outline-primary">Back To Listings</a>
+      <div class="row">
+        <div class="col-md-9">
+          <!-- Home Main Image -->
+          <img src="{{ producto.foto1.url }}" alt="" class="img-main img-fluid mb-3" width="400px" height="200px">
+          <!-- Thumbnails -->
+          <div class="row mb-5 thumbs">
+          	{% if producto.foto2 %}
+            <div class="col-md-2">
+              <a href="{{ producto.foto2.url}}" data-lightbox="home-images">
+                <img src="{{ producto.foto2.url}}" alt="" class="img-fluid">
+              </a>
+            </div>
+            {% endif %}
+            {% if producto.foto3 %}
+            <div class="col-md-2">
+              <a href="{{ producto.foto3.url}}" data-lightbox="home-images">
+                <img src="{{ producto.foto3.url}}" alt="" class="img-fluid">
+              </a>
+            </div>
+            {% endif %}
+            {% if producto.foto4 %}
+            <div class="col-md-2">
+              <a href="{{ producto.foto4.url}}" data-lightbox="home-images">
+                <img src="{{ producto.foto4.url}}" alt="" class="img-fluid">
+              </a>
+            </div>
+            {% endif %}
+            {% if producto.foto5 %}
+            <div class="col-md-2">
+              <a href="{{ producto.foto5.url}}" data-lightbox="home-images">
+                <img src="{{ producto.foto5.url}}" alt="" class="img-fluid">
+              </a>
+            </div>
+            {% endif %}          
+          </div>
+
+        <div class="row mb-5 fields">
+            <div class="col-md-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-money-bill-alt"></i> Precio:
+                  <span class="float-right">S/.{{producto.precio}}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-bed"></i> Marca:
+                  <span class="float-right">{{producto.marca}}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-bath"></i> Modelo:
+                  <span class="float-right">{{producto.modelo}}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-car"></i> Fecha:
+                  <span class="float-right">{{producto.fecha.date}}
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-md-6">
+              <ul class="list-group list-group-flush">              
+              </ul>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="row mb-5">
+            <div class="col-md-12">
+             {{producto.descripcion}}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mb-3">
+            <!--<img class="card-img-top" src="assets/img/realtors/kyle.jpg" alt="Seller of the month">-->
+            <div class="card-body">
+              <h5 class="card-title">Vendedor :</h5>
+              <h6 class="text-secondary">{{producto.autor.username}}</h6>
+            </div>
+          </div>
+          <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">No hace Nada</button>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

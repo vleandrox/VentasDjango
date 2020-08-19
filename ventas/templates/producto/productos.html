@@ -1,0 +1,32 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+<section id="listings" class="py-5">
+  <div class="container">
+    <h3 class="text-center mb-3"> Ultimos producots agregados !!</h3>
+    <div class="row">
+      <div class="card-deck">
+        {% for producto in productos %}
+        <div class="col-md-6 col-lg-3 mb-3">
+          <div class="card">
+            <div>
+              <img src="{{ producto.foto1.url }}" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{producto.titulo}}</h5>
+              <p class="card-text">{{producto.descripcion}}</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">{{producto.fecha}}</small>
+            </div>
+          </div>
+        </div>       
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row ">
+       <a href="{% url 'home' %}" class="btn btn-primary mx-auto"  >Ir todos los celulares disponibles !!</a>
+    </div>
+  </div>
+</section>
+{% endblock content %}
