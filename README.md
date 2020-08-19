@@ -13,3 +13,7 @@ psycopg2==2.8.3
 pytz==2019.2
 sqlparse==0.3.0
 whitenoise==4.1.3
+
+1. Crear entorno virtual .  python virtualenv ent
+2. Migrate 
+3. python manage.py runserver
